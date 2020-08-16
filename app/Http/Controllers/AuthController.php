@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\AuthServiceInterface;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends BaseApiController
 {
@@ -70,5 +71,10 @@ class AuthController extends BaseApiController
 
         $result = json_decode((string) $response->getBody(), true);
         return response()->json($result, $this->successStatus);
+    }
+
+    public function user(){
+        $user = Auth::user();
+        return response()->json($user, $this->successStatus);
     }
 }
