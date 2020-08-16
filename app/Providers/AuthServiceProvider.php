@@ -32,11 +32,13 @@ class AuthServiceProvider extends ServiceProvider
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(10));
     }
 
-    public function register()    
-    {   
+    public function register()
+    {
         $this->app->bind(
             'App\Services\AuthServiceInterface',
-            'App\Services\AuthService'        
-        );    
+            'App\Services\AuthService'
+        );
     }
 }
+
+
