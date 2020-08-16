@@ -25,4 +25,8 @@ class GalleryService implements GalleryServiceInterface
     public function getOverallConclusionData() {
         return $this->imageModel->queryImageOverallConclusionData();
     }
+
+    public function getUploadedImages() {
+        return $this->imageModel::all();
+    }
 }
