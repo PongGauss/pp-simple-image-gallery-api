@@ -21,4 +21,5 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     Route::get('gallery/usage', 'GalleryController@galleryUsageConclusion');
     Route::get('gallery/overall', 'GalleryController@galleryOverallConclusion');
+    Route::get('gallery/all', 'GalleryController@getUploadedImages');
 });

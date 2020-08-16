@@ -23,4 +23,9 @@ class GalleryController extends BaseApiController
         $resp = $this->galleryService->getOverallConclusionData();
         return $this->response($resp, 200);
     }
+
+    public function getUploadedImages() {
+        $resp = $this->galleryService->getUploadedImages();
+        return $this->response($resp, 200);
+    }
 }
