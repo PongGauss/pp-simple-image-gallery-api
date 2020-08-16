@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+    mysql:
+        image: 'spdponggauss/mysql:8.0.22'
+        container_name: simple_gallery_mysql
+        environment:
+        - MYSQL_DATABASE=simple_gallery
+        - MYSQL_ROOT_USER=iamtheroot
+        - MYSQL_ROOT_PASSWORD=iamtheroot
+        - MYSQL_AUTHENTICATION_PLUGIN=mysql_native_password
+        volumes:
+        - ./mysql-persistence:/bitnami/mysql/data
+        ports:
+        - '3344:3306'
+
+    phpmyadmin:
+        image: spdponggauss/phpmyadmin:4.8
+        container_name: simple_gallery_phpmyadmin
+        environment:
+        - PMA_ARBITRARY=1
+        - PMA_HOST=db
+        restart: always
+        ports:
+        - '8089:80'
+        links:
+        - mysql    
